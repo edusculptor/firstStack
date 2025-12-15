@@ -2,10 +2,12 @@ import e from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import Products from "./Models/product.js";
+import cors from "cors";
 
 dotenv.config();
 const app=e();
 const PORT=3000;
+app.use(cors());
 app.use(e.json());
 const DATABASE_CONNECTION= async()=>{
     const connect = await mongoose.connect(process.env.MongoDB)
